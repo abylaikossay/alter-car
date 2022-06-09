@@ -1,0 +1,17 @@
+package net.alterapp.altercar.model.requests;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
+
+
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class CarBrandRequest {
+  private String name;
+  private MultipartFile logo;
+}

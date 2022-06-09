@@ -1,0 +1,3 @@
+jwt:
+  secret: local
+  token_validity_seconds: 18000

@@ -1,0 +1,48 @@
+# Spring and other bootstrap configs
+
+server:
+  port: 8080
+  tomcat:
+    threads:
+      max: ${TOMCAT_THREADS:200}
+    mbeanregistry:
+      enabled: true
+  servlet:
+    encoding:
+      charset: UTF-8
+      force-response: true
+
+spring:
+  profiles:
+    active: dev
+    include: >
+      custom-configs
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_SCHEMA:alter_car}
+    username: ${DB_USERNAME:altercar}
+    password: ${DB_PASSWORD:altercar}
+    hikari:
+      connection-timeout: 20000
+      leakDetectionThreshold: 60000
+      maximumPoolSize: 2
+    type: com.zaxxer.hikari.HikariDataSource
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL10Dialect
+    show-sql: ${JPA_SHOW_SQL:false}
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+
+  servlet:
+    multipart:
+      max-file-size: 30MB
+      max-request-size: 30MB
+file:
+  upload-dir: var/tmp

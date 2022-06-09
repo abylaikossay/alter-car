@@ -1,0 +1,18 @@
+package net.alterapp.altercar.model.enums;
+
+public enum PrivilegeEnum {
+
+  CREATE_ACCOUNT,
+  READ_ACCOUNT,
+  EDIT_ACCOUNT,
+
+  CREATE_PROJECT,
+  READ_PROJECT,
+  EDIT_PROJECT,
+
+  APPROVE_LEVEL_LOCAL,
+  APPROVE_LEVEL_CENTRAL,
+  APPROVE_LEVEL_AUTHORISED,
+  APPROVE_LEVEL_COMMISSION,
+
+}
