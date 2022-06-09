@@ -11,7 +11,7 @@ import java.util.List;
 public interface PartnerService {
 
 
-    PartnerEntity create(PartnerRequest partnerRequest);
+    PartnerEntity create(PartnerRequest partnerRequest, String userName);
 
     PartnerEntity getById(Long id);
 

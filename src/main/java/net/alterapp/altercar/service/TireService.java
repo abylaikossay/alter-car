@@ -23,4 +23,6 @@ public interface TireService {
                             Optional<Integer> size,
                             Optional<String[]> sortBy,
                             String userName);
+
+    TireEntity save(TireEntity tireEntity);
 }

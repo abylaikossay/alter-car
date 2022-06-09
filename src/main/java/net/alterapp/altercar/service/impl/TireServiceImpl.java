@@ -43,8 +43,8 @@ public class TireServiceImpl implements TireService {
         checkIfExists(tireRequest.getName());
         TireEntity tireEntity = new TireEntity();
         TireBrandEntity tireBrandEntity = tireBrandService.getById(tireRequest.getTireBrandId());
-        if (tireRequest.getLogo() != null) {
-            String file = fileService.storeFile(tireRequest.getLogo(), "tire-photo");
+        if (tireRequest.getPhoto() != null) {
+            String file = fileService.storeFile(tireRequest.getPhoto(), "tire-photo");
             tireEntity.setPhotoUrl(file);
         }
         tireEntity.setName(tireRequest.getName());
@@ -83,11 +83,11 @@ public class TireServiceImpl implements TireService {
         TireEntity tireEntity = getById(id);
         TireBrandEntity tireBrandEntity = tireBrandService.getById(tireRequest.getTireBrandId());
         checkIfTireBelongs(userName, tireEntity);
-        if (tireRequest.getLogo() != null) {
+        if (tireRequest.getPhoto() != null) {
             if (tireEntity.getPhotoUrl() != null) {
                 fileService.delete(tireEntity.getPhotoUrl(), "tire-photo");
             }
-            String photo_url = fileService.storeFile(tireRequest.getLogo(), "tire-photo");
+            String photo_url = fileService.storeFile(tireRequest.getPhoto(), "tire-photo");
             tireEntity.setPhotoUrl(photo_url);
         }
         tireEntity.setName(tireRequest.getName());
@@ -133,6 +133,11 @@ public class TireServiceImpl implements TireService {
 //        Page<TireEntity> tiresPage = tireRepository.findAll(exp, pagination.paginate(page, size, sortBy));
 //        return pagination.tireResponses(tiresPage);
         return tireRepository.findAllByDeletedAtIsNullAndPartner_Id(partnerEntity.getId());
+    }
+
+    @Override
+    public TireEntity save(TireEntity tireEntity) {
+        return tireRepository.save(tireEntity);
     }
 
     private void checkIfExists(String name) {

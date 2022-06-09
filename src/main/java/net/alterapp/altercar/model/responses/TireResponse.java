@@ -1,7 +1,6 @@
 package net.alterapp.altercar.model.responses;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,12 +8,9 @@ import lombok.NoArgsConstructor;
 import net.alterapp.altercar.model.entity.TireBrandEntity;
 import net.alterapp.altercar.model.enums.TireSeasonEnum;
 
-import javax.persistence.Column;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.ManyToOne;
 import java.util.Date;
-import java.util.List;
 
 @Builder
 @Data

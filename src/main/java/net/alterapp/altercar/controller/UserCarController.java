@@ -3,7 +3,6 @@ package net.alterapp.altercar.controller;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.RequiredArgsConstructor;
 import net.alterapp.altercar.model.requests.UserCarRequest;
-import net.alterapp.altercar.model.responses.success.SuccessResponse;
 import net.alterapp.altercar.service.UserCarService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

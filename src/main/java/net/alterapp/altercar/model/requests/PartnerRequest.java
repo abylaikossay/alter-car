@@ -1,16 +1,11 @@
 package net.alterapp.altercar.model.requests;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import net.alterapp.altercar.model.entity.AccountEntity;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.persistence.Column;
-import javax.persistence.ManyToOne;
 
 
 @Data

@@ -1,6 +1,5 @@
 package net.alterapp.altercar.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -29,10 +28,6 @@ public class PartnerEntity extends AuditModel {
   @Column(name = "name")
   private String name;
 
-  @ApiModelProperty(notes = "Created by")
-  @ManyToOne
-  @JsonIgnore
-  private AccountEntity createdBy;
 
   @ApiModelProperty(notes = "Link to the address of partner")
   @Column(name = "link")

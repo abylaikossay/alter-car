@@ -1,20 +1,15 @@
 package net.alterapp.altercar.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import net.alterapp.altercar.model.entity.CarBrandEntity;
 import net.alterapp.altercar.model.entity.PartnerEntity;
-import net.alterapp.altercar.model.requests.CarBrandRequest;
 import net.alterapp.altercar.model.requests.PartnerRequest;
 import net.alterapp.altercar.model.responses.errors.ErrorCode;
 import net.alterapp.altercar.model.responses.errors.ServiceException;
-import net.alterapp.altercar.repository.CarBrandRepository;
 import net.alterapp.altercar.repository.PartnerRepository;
-import net.alterapp.altercar.service.CarBrandService;
 import net.alterapp.altercar.service.FileService;
 import net.alterapp.altercar.service.PartnerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.Date;
@@ -31,7 +26,7 @@ public class PartnerServiceImpl implements PartnerService {
 
 
     @Override
-    public PartnerEntity create(PartnerRequest partnerRequest) {
+    public PartnerEntity create(PartnerRequest partnerRequest, String userName) {
         checkIfExists(partnerRequest.getName());
         PartnerEntity partnerEntity = new PartnerEntity();
         if (partnerRequest.getLogo() != null) {
@@ -39,6 +34,14 @@ public class PartnerServiceImpl implements PartnerService {
             partnerEntity.setLogoUrl(file);
         }
         partnerEntity.setName(partnerRequest.getName());
+        partnerEntity.setAddress(partnerRequest.getAddress());
+        partnerEntity.setDescription(partnerRequest.getDescription());
+        partnerEntity.setEmail(partnerRequest.getEmail());
+        partnerEntity.setLink(partnerRequest.getLink());
+        partnerEntity.setPhone(partnerRequest.getPhone());
+        partnerEntity.setPushText(partnerRequest.getPushText());
+        partnerEntity.setVisible(partnerRequest.getVisible());
+        partnerEntity.setQrPath(partnerRequest.getQrPath());
         partnerRepository.save(partnerEntity);
         return partnerEntity;
     }
@@ -70,6 +73,14 @@ public class PartnerServiceImpl implements PartnerService {
             partnerEntity.setLogoUrl(logo_url);
         }
         partnerEntity.setName(partnerRequest.getName());
+        partnerEntity.setAddress(partnerRequest.getAddress());
+        partnerEntity.setDescription(partnerRequest.getDescription());
+        partnerEntity.setEmail(partnerRequest.getEmail());
+        partnerEntity.setLink(partnerRequest.getLink());
+        partnerEntity.setPhone(partnerRequest.getPhone());
+        partnerEntity.setPushText(partnerRequest.getPushText());
+        partnerEntity.setVisible(partnerRequest.getVisible());
+        partnerEntity.setQrPath(partnerRequest.getQrPath());
         partnerRepository.save(partnerEntity);
         return partnerEntity;
     }

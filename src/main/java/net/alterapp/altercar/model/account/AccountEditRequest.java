@@ -1,6 +1,8 @@
 package net.alterapp.altercar.model.account;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 import net.alterapp.altercar.model.enums.RoleEnum;
 import net.alterapp.altercar.validation.Patronymic;
 import lombok.Data;
@@ -12,6 +14,8 @@ import javax.validation.constraints.Size;
 
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class AccountEditRequest {
 
   public Long id;

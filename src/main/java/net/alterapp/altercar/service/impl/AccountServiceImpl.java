@@ -67,7 +67,7 @@ public class AccountServiceImpl implements AccountService {
         account.setUsername(request.username);
         account.setPassword(passwordEncoder.encode(request.password));
 
-        if (account.getRole() == null) {
+        if (request.getRole() == null) {
             account.setRole(RoleEntity.builder()
                     .id(RoleEnum.ROLE_BASIC)
                     .build());

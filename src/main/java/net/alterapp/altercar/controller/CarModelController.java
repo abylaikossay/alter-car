@@ -5,11 +5,8 @@ import net.alterapp.altercar.model.requests.CarModelRequest;
 import net.alterapp.altercar.model.responses.errors.ServiceException;
 import net.alterapp.altercar.model.responses.success.SuccessResponse;
 import net.alterapp.altercar.service.CarModelService;
-import net.alterapp.altercar.service.FamilyService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
